@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mo Bus | Bhubaneswar Public Transport</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f8fa;
+            color: #17202a;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 3px 20px rgba(0,0,0,.06);
+        }
+
+        .navbar-brand {
+            font-size: 27px;
+            font-weight: 800;
+            color: #006b55 !important;
+        }
+
+        .navbar-brand span {
+            color: #f58220;
+        }
+
+        .brand-subtitle {
+            display: block;
+            font-size: 8px;
+            color: #7a8790;
+            letter-spacing: 2px;
+        }
+
+        .nav-link {
+            color: #4b5563 !important;
+            font-weight: 600;
+            margin: 0 7px;
+        }
+
+        .nav-link:hover {
+            color: #006b55 !important;
+        }
+
+        .nav-btn {
+            background: #006b55;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-btn:hover {
+            background: #004f40;
+            color: white;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #004f40,
+                    #00866d
+                );
+
+            color: white;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.06);
+
+            right: -150px;
+            top: -180px;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: rgba(245,130,32,.12);
+
+            left: -100px;
+            bottom: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            background: rgba(255,255,255,.12);
+
+            border: 1px solid rgba(255,255,255,.2);
+
+            padding: 8px 16px;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 72px);
+
+            line-height: 1.05;
+
+            font-weight: 800;
+
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #ffb35c;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: #d8eee9;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin: 25px 0 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-orange {
+            background: #f58220;
+
+            color: white;
+
+            padding: 13px 23px;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            border: none;
+        }
+
+        .btn-orange:hover {
+            background: #dc6b0d;
+            color: white;
+        }
+
+        .btn-light-custom {
+            background: white;
+
+            color: #006b55;
+
+            padding: 13px 23px;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .btn-light-custom:hover {
+            background: #e9f5f2;
+            color: #006b55;
+        }
+
+
+        /* ================= BUS ILLUSTRATION ================= */
+
+        .bus-area {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .bus-card {
+            width: 100%;
+
+            max-width: 500px;
+
+            background: rgba(255,255,255,.12);
+
+            border: 1px solid rgba(255,255,255,.2);
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 30px 60px rgba(0,0,0,.18);
+        }
+
+        .bus-icon-box {
+            height: 330px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.15),
+                    rgba(255,255,255,.04)
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .big-bus {
+            font-size: 190px;
+            color: #ffb35c;
+
+            filter:
+                drop-shadow(
+                    0 20px 20px rgba(0,0,0,.25)
+                );
+        }
+
+
+        /* ================= SEARCH ================= */
+
+        .search-wrapper {
+            margin-top: -55px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+        .route-search {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.12);
+        }
+
+        .search-title {
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .form-control,
+        .form-select {
+            height: 52px;
+
+            border-radius: 8px;
+
+            border: 1px solid #dbe3e8;
+        }
+
+        .search-btn {
+            width: 100%;
+
+            height: 52px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #006b55;
+
+            color: white;
+
+            font-weight: 700;
+        }
+
+        .search-btn:hover {
+            background: #004f40;
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            color: #00866d;
+
+            text-transform: uppercase;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            font-weight: 800;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+
+            font-weight: 800;
+
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+
+            max-width: 650px;
+
+            margin: 15px auto;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= FEATURES ================= */
+
+        .feature-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e4eaee;
+
+            height: 100%;
+
+            transition: .3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #00866d;
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,.08);
+        }
+
+        .feature-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #e3f4ef;
+
+            color: #006b55;
+
+            border-radius: 13px;
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+        .feature-card h5 {
+            font-weight: 800;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= ROUTES ================= */
+
+        .route-card {
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            border: 1px solid #e2e8f0;
+
+            height: 100%;
+
+            transition: .3s;
+        }
+
+        .route-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.08);
+        }
+
+        .route-number {
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            background: #006b55;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+        }
+
+        .route-card h5 {
+            font-weight: 800;
+        }
+
+        .route-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .route-arrow {
+            color: #f58220;
+
+            font-size: 20px;
+        }
+
+
+        /* ================= PASS ================= */
+
+        .pass-section {
+            background: #edf7f4;
+        }
+
+        .pass-box {
+            background:
+                linear-gradient(
+                    120deg,
+                    #004f40,
+                    #00866d
+                );
+
+            color: white;
+
+            border-radius: 22px;
+
+            padding: 60px 45px;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .pass-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.08);
+
+            right: -80px;
+            top: -100px;
+        }
+
+        .pass-box h2 {
+            font-size: 40px;
+
+            font-weight: 800;
+        }
+
+        .pass-box p {
+            color: #d5eee8;
+
+            line-height: 1.7;
+
+            max-width: 600px;
+        }
+
+
+        /* ================= STATS ================= */
+
+        .stats {
+            background: #101918;
+
+            color: white;
+
+            padding: 70px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h2 {
+            color: #ff9b43;
+
+            font-size: 42px;
+
+            font-weight: 800;
+        }
+
+        .stat p {
+            color: #aab7b4;
+
+            margin: 0;
+        }
+
+
+        /* ================= APP ================= */
+
+        .app-card {
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 45px;
+
+            border: 1px solid #e2e8f0;
+        }
+
+        .app-icon {
+            font-size: 70px;
+
+            color: #006b55;
+        }
+
+        .app-card h2 {
+            font-weight: 800;
+        }
+
+        .app-card p {
+            color: #6b7280;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-card {
+            background: white;
+
+            border: 1px solid #e2e8f0;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            height: 100%;
+        }
+
+        .contact-icon {
+            width: 52px;
+            height: 52px;
+
+            background: #e3f4ef;
+
+            color: #006b55;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-card h5 {
+            font-weight: 800;
+        }
+
+        .contact-card p {
+            color: #6b7280;
+
+            margin: 0;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #07100e;
+
+            color: #84928e;
+
+            padding: 35px 0;
+        }
+
+        .footer-brand {
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: 800;
+        }
+
+        .footer-brand span {
+            color: #f58220;
+        }
+
+        .social a {
+            color: #84928e;
+
+            font-size: 20px;
+
+            margin-left: 15px;
+
+            text-decoration: none;
+        }
+
+        .social a:hover {
+            color: #f58220;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 991px) {
+
+            .hero {
+                text-align: center;
+
+                padding: 120px 0 80px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .bus-area {
+                margin-top: 50px;
+            }
+
+            .big-bus {
+                font-size: 130px;
+            }
+
+            .bus-icon-box {
+                height: 260px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                        NAVBAR
+====================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+
+            Mo <span>Bus</span>
+
+            <small class="brand-subtitle">
+                BHUBANESWAR PUBLIC TRANSPORT
+            </small>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#routes">
+                        Routes
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">
+                        Services
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#pass">
+                        Bus Pass
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <a href="#routes" class="nav-btn">
+                Find a Bus
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+                         HERO
+====================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="hero-content">
+
+                    <span class="hero-badge">
+
+                        <i class="bi bi-bus-front-fill me-2"></i>
+
+                        Smart Public Transport
+
+                    </span>
+
+
+                    <h1>
+
+                        Your City.
+
+                        <span>
+                            Your Bus.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Travel across Bhubaneswar with convenient,
+                        affordable and reliable public transportation.
+                        Find routes, plan your journey and explore
+                        the city with Mo Bus.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a href="#routes" class="btn-orange">
+
+                            Find Your Route
+
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </a>
+
+
+                        <a href="#pass" class="btn-light-custom">
+
+                            Get Bus Pass
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="bus-area">
+
+                    <div class="bus-card">
+
+                        <div class="bus-icon-box">
+
+                            <i class="bi bi-bus-front-fill big-bus"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                       ROUTE SEARCH
+====================================================== -->
+
+<div class="search-wrapper">
+
+    <div class="container">
+
+        <div class="route-search">
+
+            <div class="search-title">
+
+                <i class="bi bi-search me-2"></i>
+
+                Plan Your Journey
+
+            </div>
+
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="From location">
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="To location">
+
+                </div>
+
+
+                <div class="col-md-2">
+
+                    <select class="form-select">
+
+                        <option>Today</option>
+
+                        <option>Tomorrow</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-2">
+
+                    <button
+                        class="search-btn"
+                        onclick="findRoute()">
+
+                        Search
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="routeMessage"
+                class="mt-3 text-success fw-semibold">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+                        FEATURES
+====================================================== -->
+
+<section class="section" id="features">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                Why Choose Mo Bus
+            </span>
+
+            <h2>
+                Better Way to Travel
+            </h2>
+
+            <p>
+                Designed to make everyday city travel
+                easier, smarter and more comfortable.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                    </div>
+
+                    <h5>
+                        Easy Routes
+                    </h5>
+
+                    <p>
+                        Find convenient routes connecting
+                        important destinations across the city.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-clock-fill"></i>
+
+                    </div>
+
+                    <h5>
+                        Timely Service
+                    </h5>
+
+                    <p>
+                        Plan your daily travel around
+                        convenient bus schedules.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-wallet2"></i>
+
+                    </div>
+
+                    <h5>
+                        Affordable
+                    </h5>
+
+                    <p>
+                        A practical transportation option
+                        for students, workers and families.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-phone-fill"></i>
+
+                    </div>
+
+                    <h5>
+                        Digital Travel
+                    </h5>
+
+                    <p>
+                        Access travel information and
+                        services through digital platforms.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                         ROUTES
+====================================================== -->
+
+<section class="section bg-white" id="routes">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                Popular Routes
+            </span>
+
+            <h2>
+                Explore Bus Routes
+            </h2>
+
+            <p>
+                Example route cards for the website interface.
+                Replace these with current official route data.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="route-card">
+
+                    <div class="route-number">
+                        01
+                    </div>
+
+                    <h5>
+                        Airport → City Centre
+                    </h5>
+
+                    <p>
+                        Bhubaneswar Airport
+                        <i class="bi bi-arrow-right route-arrow mx-2"></i>
+                        Central Bhubaneswar
+                    </p>
+
+                    <hr>
+
+                    <small class="text-secondary">
+
+                        <i class="bi bi-clock me-1"></i>
+
+                        Check current schedule
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="route-card">
+
+                    <div class="route-number">
+                        02
+                    </div>
+
+                    <h5>
+                        Railway Station → Patia
+                    </h5>
+
+                    <p>
+                        Bhubaneswar Railway Station
+                        <i class="bi bi-arrow-right route-arrow mx-2"></i>
+                        Patia
+                    </p>
+
+                    <hr>
+
+                    <small class="text-secondary">
+
+                        <i class="bi bi-clock me-1"></i>
+
+                        Check current schedule
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="route-card">
+
+                    <div class="route-number">
+                        03
+                    </div>
+
+                    <h5>
+                        Master Canteen → Khandagiri
+                    </h5>
+
+                    <p>
+                        Master Canteen
+                        <i class="bi bi-arrow-right route-arrow mx-2"></i>
+                        Khandagiri
+                    </p>
+
+                    <hr>
+
+                    <small class="text-secondary">
+
+                        <i class="bi bi-clock me-1"></i>
+
+                        Check current schedule
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                         STATS
+====================================================== -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h2>100+</h2>
+
+                    <p>
+                        Bus Routes
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h2>500+</h2>
+
+                    <p>
+                        Daily Services
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h2>1L+</h2>
+
+                    <p>
+                        Daily Passengers
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <div class="stat">
+
+                    <h2>24/7</h2>
+
+                    <p>
+                        Travel Information
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                         BUS PASS
+====================================================== -->
+
+<section class="section pass-section" id="pass">
+
+    <div class="container">
+
+        <div class="pass-box">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <h2>
+                        Travel Smarter With a Bus Pass
+                    </h2>
+
+                    <p class="mt-3">
+
+                        Make your everyday commute easier.
+                        Explore bus pass options and choose
+                        the travel solution that works for you.
+
+                    </p>
+
+                    <a href="#" class="btn-orange mt-2">
+
+                        Explore Pass Options
+
+                    </a>
+
+                </div>
+
+
+                <div class="col-lg-4 text-center">
+
+                    <i
+                        class="bi bi-credit-card-2-front"
+                        style="font-size:130px;color:#ffb35c;">
+                    </i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                         MOBILE APP
+====================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="app-card">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-3 text-center">
+
+                    <i class="bi bi-phone-fill app-icon"></i>
+
+                </div>
+
+
+                <div class="col-lg-9">
+
+                    <span class="section-label">
+                        Digital Travel
+                    </span>
+
+                    <h2 class="mt-2">
+                        Plan Your Journey From Your Phone
+                    </h2>
+
+                    <p class="mt-3">
+
+                        Get route information, travel updates
+                        and useful public transport information
+                        directly from your mobile device.
+
+                    </p>
+
+
+                    <button class="btn-orange">
+
+                        <i class="bi bi-download me-2"></i>
+
+                        Get the App
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                         CONTACT
+====================================================== -->
+
+<section class="section bg-white" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="section-label">
+                Need Help?
+            </span>
+
+            <h2>
+                Contact Mo Bus
+            </h2>
+
+            <p>
+                Get information about routes, passes,
+                services and passenger support.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                    </div>
+
+                    <h5>
+                        Helpline
+                    </h5>
+
+                    <p>
+                        Contact the official passenger
+                        support service.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                    </div>
+
+                    <h5>
+                        Bhubaneswar
+                    </h5>
+
+                    <p>
+                        Odisha, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+
+                        <i class="bi bi-envelope-fill"></i>
+
+                    </div>
+
+                    <h5>
+                        Passenger Support
+                    </h5>
+
+                    <p>
+                        Get assistance with your travel.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                         FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row align-items-center g-4">
+
+            <div class="col-md-7">
+
+                <div class="footer-brand">
+
+                    Mo <span>Bus</span>
+
+                </div>
+
+                <p class="mt-2">
+
+                    Smart public transportation
+                    for Bhubaneswar.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-md-5 text-md-end">
+
+                <div class="social">
+
+                    <a href="#">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <hr class="border-secondary my-4">
+
+
+        <div class="text-center">
+
+            <small>
+                © 2026 Mo Bus. Demo website UI.
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+                     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+    function findRoute() {
+
+        const message =
+            document.getElementById("routeMessage");
+
+        message.innerHTML =
+            "✓ Route search interface ready. Connect this form to live Mo Bus route data.";
+
+    }
+
+</script>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

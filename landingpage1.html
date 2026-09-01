@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mohapatra Enterprise | Stationery & Office Supplies</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #172033;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(15px);
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: 800;
+            color: #1d4ed8 !important;
+        }
+
+        .navbar-brand small {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #64748b;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #475569 !important;
+            margin: 0 7px;
+        }
+
+        .nav-link:hover {
+            color: #1d4ed8 !important;
+        }
+
+        .btn-shop {
+            background: #1d4ed8;
+            color: white;
+            padding: 11px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-shop:hover {
+            background: #1e40af;
+            color: white;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(59,130,246,0.13),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(245,158,11,0.12),
+                    transparent 30%
+                ),
+                #f8fafc;
+
+            padding: 80px 0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #1d4ed8;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            color: #64748b;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 25px 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-custom {
+            background: #1d4ed8;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-primary-custom:hover {
+            background: #1e40af;
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            padding: 13px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-outline-custom:hover {
+            background: #f1f5f9;
+            color: #1d4ed8;
+        }
+
+        /* ================= PRODUCT DISPLAY ================= */
+
+        .product-showcase {
+            background: white;
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(15,23,42,0.12);
+        }
+
+        .product-board {
+            background: #eff6ff;
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .stationery-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(15,23,42,0.06);
+            transition: .3s;
+        }
+
+        .stationery-item:hover {
+            transform: translateY(-7px);
+        }
+
+        .stationery-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .stationery-item h6 {
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .stationery-item small {
+            color: #64748b;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: #64748b;
+            max-width: 600px;
+            margin: 15px auto;
+        }
+
+        /* ================= CATEGORY ================= */
+
+        .category-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15,23,42,.08);
+            border-color: #bfdbfe;
+        }
+
+        .category-icon {
+            width: 65px;
+            height: 65px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .category-card h5 {
+            font-weight: 700;
+        }
+
+        .category-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .product-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            overflow: hidden;
+            height: 100%;
+            transition: .3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 40px rgba(15,23,42,.1);
+        }
+
+        .product-image {
+            height: 180px;
+            background: #eff6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 75px;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h5 {
+            font-weight: 700;
+        }
+
+        .product-info p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .price {
+            color: #1d4ed8;
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about-box {
+            background: white;
+            border-radius: 25px;
+            padding: 45px;
+            box-shadow: 0 15px 40px rgba(15,23,42,.06);
+        }
+
+        .about-box h2 {
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .about-box p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .about-feature i {
+            font-size: 25px;
+            color: #1d4ed8;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            background: #0f172a;
+            color: white;
+        }
+
+        .contact-section p {
+            color: #cbd5e1;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 18px;
+            padding: 25px;
+            height: 100%;
+        }
+
+        .contact-icon {
+            font-size: 28px;
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 25px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .social-icons a {
+            color: #94a3b8;
+            font-size: 20px;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 991px) {
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .product-showcase {
+                margin-top: 50px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+                        NAVBAR
+====================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            Mohapatra Enterprise
+            <small>STATIONERY & OFFICE SUPPLIES</small>
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categories">
+                        Categories
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#products">
+                        Products
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+            <a href="#contact" class="btn-shop">
+                Visit Our Store
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+                         HERO
+====================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="hero-badge">
+                    <i class="bi bi-shop me-1"></i>
+                    Your Local Stationery Partner
+                </div>
+
+                <h1>
+                    Everything You Need,
+                    <span>All in One Place.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Welcome to Mohapatra Enterprise — your trusted local
+                    destination for quality stationery, school supplies,
+                    office essentials and everyday writing products.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#products"
+                       class="btn-primary-custom">
+
+                        Explore Products
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </a>
+
+                    <a href="#contact"
+                       class="btn-outline-custom">
+
+                        Contact Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT SHOWCASE -->
+
+            <div class="col-lg-6">
+
+                <div class="product-showcase">
+
+                    <div class="product-board">
+
+                        <div class="text-center mb-4">
+
+                            <span class="badge bg-primary">
+                                Popular Stationery
+                            </span>
+
+                            <h4 class="fw-bold mt-2">
+                                School & Office Essentials
+                            </h4>
+
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-6">
+
+                                <div class="stationery-item">
+
+                                    <div class="stationery-icon">
+                                        📓
+                                    </div>
+
+                                    <h6>Notebooks</h6>
+                                    <small>Quality Books</small>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <div class="stationery-item">
+
+                                    <div class="stationery-icon">
+                                        🖊️
+                                    </div>
+
+                                    <h6>Pens</h6>
+                                    <small>Writing Essentials</small>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <div class="stationery-item">
+
+                                    <div class="stationery-icon">
+                                        ✏️
+                                    </div>
+
+                                    <h6>Pencils</h6>
+                                    <small>School Supplies</small>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <div class="stationery-item">
+
+                                    <div class="stationery-icon">
+                                        📁
+                                    </div>
+
+                                    <h6>Files</h6>
+                                    <small>Office Supplies</small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                     CATEGORIES
+====================================================== -->
+
+<section class="section" id="categories">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="hero-badge">
+                Our Categories
+            </span>
+
+            <h2>
+                Stationery for Every Need
+            </h2>
+
+            <p>
+                From students to professionals, find the everyday
+                stationery products you need.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+
+                    <h5>School Supplies</h5>
+
+                    <p>
+                        Notebooks, pencils, erasers,
+                        geometry boxes and more.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-briefcase"></i>
+                    </div>
+
+                    <h5>Office Supplies</h5>
+
+                    <p>
+                        Files, folders, registers,
+                        markers and office essentials.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-pencil"></i>
+                    </div>
+
+                    <h5>Writing Products</h5>
+
+                    <p>
+                        Pens, pencils, highlighters,
+                        markers and refills.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+
+                    <h5>Paper Products</h5>
+
+                    <p>
+                        Paper, registers, drawing sheets
+                        and printing materials.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                        PRODUCTS
+====================================================== -->
+
+<section class="section bg-white" id="products">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="hero-badge">
+                Featured Products
+            </span>
+
+            <h2>
+                Our Popular Products
+            </h2>
+
+            <p>
+                Quality stationery products for school,
+                college, home and office.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- Product 1 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        📓
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>Premium Notebook</h5>
+
+                        <p>
+                            Durable notebook suitable for
+                            school and college.
+                        </p>
+
+                        <span class="price">
+                            ₹60
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 2 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        🖊️
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>Ball Pen</h5>
+
+                        <p>
+                            Smooth writing ball pen
+                            for everyday use.
+                        </p>
+
+                        <span class="price">
+                            ₹10
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 3 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        📁
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>Office File</h5>
+
+                        <p>
+                            Strong and practical file
+                            for organizing documents.
+                        </p>
+
+                        <span class="price">
+                            ₹35
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Product 4 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+                        📐
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>Geometry Box</h5>
+
+                        <p>
+                            Complete geometry set
+                            for students.
+                        </p>
+
+                        <span class="price">
+                            ₹90
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                         ABOUT
+====================================================== -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="about-box">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+
+                    <span class="hero-badge">
+                        About Mohapatra Enterprise
+                    </span>
+
+                    <h2>
+                        Your Trusted Local
+                        Stationery Store
+                    </h2>
+
+                    <p class="mt-4">
+                        Mohapatra Enterprise is a local stationery
+                        business focused on providing useful,
+                        affordable and quality products for students,
+                        families, businesses and offices.
+                    </p>
+
+                    <p>
+                        We believe in friendly service, reasonable
+                        pricing and keeping everyday stationery
+                        essentials easily available in the local
+                        community.
+                    </p>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="about-feature">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <div>
+                            <h5 class="fw-bold">
+                                Quality Products
+                            </h5>
+
+                            <p>
+                                Carefully selected stationery products
+                                for everyday use.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-feature">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <div>
+                            <h5 class="fw-bold">
+                                Affordable Prices
+                            </h5>
+
+                            <p>
+                                Practical products at reasonable
+                                local-store prices.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-feature">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <div>
+                            <h5 class="fw-bold">
+                                Friendly Service
+                            </h5>
+
+                            <p>
+                                Personal service and support for
+                                every customer.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                        CONTACT
+====================================================== -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span class="hero-badge">
+                Contact Us
+            </span>
+
+            <h2>
+                Visit Mohapatra Enterprise
+            </h2>
+
+            <p>
+                Looking for stationery products?
+                Get in touch or visit our local store.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+
+                    <h5>Our Location</h5>
+
+                    <p>
+                        Your Local Area,<br>
+                        Odisha, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+
+                    <h5>Call Us</h5>
+
+                    <p>
+                        +91 XXXXX XXXXX
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-clock-fill"></i>
+                    </div>
+
+                    <h5>Opening Hours</h5>
+
+                    <p>
+                        Monday - Saturday<br>
+                        9:00 AM - 8:00 PM
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                        FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="d-flex
+                    justify-content-between
+                    align-items-center
+                    flex-wrap
+                    gap-3">
+
+            <p>
+                © 2026 Mohapatra Enterprise.
+                All Rights Reserved.
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+```
